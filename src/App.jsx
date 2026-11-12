@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useDeferredValue } from "react";
 import { tutors } from "./data/tutors";
 import { getVisibleTutors } from "./utils/catalog";
 import { useReferenceData } from "./hooks/useReferenceData";
@@ -30,9 +30,11 @@ export default function App() {
   const [toast, setToast] = useState(null);
   const reference = useReferenceData();
 
+  const deferredQuery = useDeferredValue(query);
+
   const visible = useMemo(
-    () => getVisibleTutors(tutors, { query, filters, sortBy }),
-    [query, filters, sortBy],
+    () => getVisibleTutors(tutors, { query: deferredQuery, filters, sortBy }),
+    [deferredQuery, filters, sortBy],
   );
   const selected = tutors.find((t) => t.id === selectedId);
 
