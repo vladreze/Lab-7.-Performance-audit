@@ -9,17 +9,13 @@ export function useBioClamp(containerRef, deps) {
       frame = 0;
       const viewportHeight = window.innerHeight;
       const measured = [];
-
-      // 1) лише читання: один layout на всю фазу
       container.querySelectorAll(".tutor-card__bio").forEach((bio) => {
         const rect = bio.getBoundingClientRect();
         if (rect.bottom > 0 && rect.top < viewportHeight) {
-          // bio вже має is-clamped: scrollHeight = повний текст, clientHeight = 3 рядки
           measured.push([bio, bio.scrollHeight > bio.clientHeight + 1]);
         }
       });
 
-      // 2) лише запис
       measured.forEach(([bio, hasMore]) => {
         bio.parentElement
           .querySelector(".tutor-card__more")
@@ -31,7 +27,7 @@ export function useBioClamp(containerRef, deps) {
       if (!frame) frame = requestAnimationFrame(update);
     };
 
-    update(); // синхронно до першого paint, як і раніше
+    update();
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     return () => {

@@ -406,10 +406,6 @@ h3 {
   font-size: 13px;
 }
 
-.tutor-card.has-more .tutor-card__more {
-  display: inline;
-}
-
 .tutor-card__more.is-visible {
   display: inline;
 }
