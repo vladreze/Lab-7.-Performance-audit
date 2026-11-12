@@ -423,6 +423,14 @@ h3 {
   font-size: 17px;
 }
 
+.tutor-card__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .tutor-card__price small {
   font-weight: 400;
   color: var(--muted);

@@ -20,6 +20,9 @@ export default function Header({ favoritesCount, total }) {
           className="hero__image"
           src="/images/hero.png"
           alt="Учні на занятті з репетитором"
+          width="1600"
+          height="340"
+          fetchPriority="high"
         />
         <div className="hero__text">
           <h1>Знайдіть свого репетитора</h1>
