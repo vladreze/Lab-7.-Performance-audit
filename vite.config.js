@@ -3,10 +3,10 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  build: { sourcemap: true },
   test: {
     environment: "jsdom",
     globals: true,
     setupFiles: "./src/setupTests.js",
   },
-  build: { sourcemap: true },
 });
