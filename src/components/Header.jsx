@@ -18,11 +18,11 @@ export default function Header({ favoritesCount, total }) {
       <div className="hero">
         <img
           className="hero__image"
-          src="/images/hero.png"
+          src="/images/hero.jpg"
           alt="Учні на занятті з репетитором"
           width="1600"
           height="340"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <div className="hero__text">
           <h1>Знайдіть свого репетитора</h1>

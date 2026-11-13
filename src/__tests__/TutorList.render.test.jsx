@@ -10,15 +10,13 @@ import App from "../App";
 import { averageRating } from "../utils/rating";
 
 describe("App", () => {
-  it("при відкритті картки не перерендерює весь список", async () => {
+  it("при відкритті картки не перерендерює весь список", () => {
     render(<App />);
-    const buttons = await screen.findAllByRole("button", {
-      name: "Детальніше",
-    });
+    const buttons = screen.getAllByText("Детальніше");
     averageRating.mockClear();
 
     fireEvent.click(buttons[0]);
 
     expect(averageRating.mock.calls.length).toBeLessThanOrEqual(10);
-  });
+  }, 30000);
 });

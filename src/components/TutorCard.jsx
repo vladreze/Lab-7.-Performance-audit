@@ -23,8 +23,8 @@ function TutorCard({
           className="tutor-card__photo"
           src={tutor.photo}
           alt={tutor.name}
-          width="600"
-          height="600"
+          width="400"
+          height="400"
           loading="lazy"
           decoding="async"
         />
